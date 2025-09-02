@@ -60,10 +60,11 @@ export default function TodoList() {
             ) : (
               <h2 className="text-center py-5 uppercase">No todos yet</h2>
             )}
-          <div className="text-sm flex justify-between items-center px-5 border-t border-amber-400 pt-2.5">
+          <div className="text-sm flex justify-between items-center px-5 border-t border-amber-400 pt-2.5
+          max-[426px]:grid max-[426px]:gap-2.5">
             <div>{list.filter((todo) => !todo.completed).length} Items left</div>
-            <div className="flex gap-0.5">
-              {buttons.map((item) => (<button key={item} className={`px-4 py-2 rounded-3xl transition ease-linear duration-100 cursor-pointer ${activebutton === item ? 'bg-amber-400 text-white' : ''}`} onClick={() => handleClick(item)}>{item}</button>))}
+            <div className="flex">
+              {buttons.map((item) => (<button key={item} className={`px-3 py-1.5 rounded-3xl transition ease-linear duration-100 cursor-pointer ${activebutton === item ? 'bg-amber-400 text-white' : ''}`} onClick={() => handleClick(item)}>{item}</button>))}
             </div>
             <div onClick={() => dispatch(removeallcompleted())} className="cursor-pointer hover:text-amber-400 transition ease-linear duration-100">Clear completed</div>
           </div>
